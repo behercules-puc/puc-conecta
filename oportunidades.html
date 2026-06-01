@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oportunidades · PUC Conecta</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a1628;--accent:#00c2ff;--gold:#f5c842;--white:#f0f4ff;--card-bg:rgba(255,255,255,0.05);--card-border:rgba(0,194,255,0.15)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+  .bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(26,58,110,0.9) 0%,transparent 70%),var(--navy)}
+  .grid-lines{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,194,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,194,255,0.04) 1px,transparent 1px);background-size:60px 60px}
+  .wrapper{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:36px 24px 80px}
+  .back{display:inline-flex;align-items:center;gap:8px;color:rgba(240,244,255,0.45);font-size:13px;text-decoration:none;margin-bottom:32px;transition:color .2s}.back:hover{color:var(--accent)}
+  .page-header{margin-bottom:32px;animation:fadeDown .7s ease both}
+  .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,130,100,0.1);border:1px solid rgba(255,130,100,0.3);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#ff9070;margin-bottom:14px}
+  h1{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:10px}
+  h1 span{color:var(--accent)}
+  .page-subtitle{font-size:14px;font-weight:300;color:rgba(240,244,255,.5);line-height:1.6}
+  .divider{width:36px;height:2px;background:linear-gradient(90deg,#ff9070,transparent);margin:16px 0}
+  .section{margin-bottom:12px;animation:fadeUp .6s ease both}
+  .section:nth-child(3){animation-delay:.1s}.section:nth-child(4){animation-delay:.2s}.section:nth-child(5){animation-delay:.3s}
+  .org-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:18px;padding:22px 22px 18px;margin-bottom:14px;backdrop-filter:blur(12px);transition:transform .2s,border-color .2s}
+  .org-card:hover{transform:translateY(-2px);border-color:rgba(0,194,255,.4)}
+  .org-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+  .org-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .oi-ecoa{background:rgba(255,130,100,.15)} .oi-genesis{background:rgba(245,200,66,.15)} .oi-ej{background:rgba(100,200,100,.15)}
+  .org-meta .org-name{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:3px}
+  .org-meta .org-tagline{font-size:12px;font-weight:300;color:rgba(240,244,255,.5);line-height:1.5}
+  .org-desc{font-size:13px;font-weight:300;color:rgba(240,244,255,.65);line-height:1.7;margin-bottom:14px}
+  .org-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .org-tag{font-size:11px;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.06);color:rgba(240,244,255,.6);border:1px solid rgba(255,255,255,.08)}
+  .org-link{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:10px;font-size:12px;font-weight:500;text-decoration:none;transition:background .2s}
+  .link-ecoa{background:rgba(255,130,100,.1);border:1px solid rgba(255,130,100,.25);color:#ff9070}
+  .link-ecoa:hover{background:rgba(255,130,100,.2)}
+  .link-genesis{background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.25);color:var(--gold)}
+  .link-genesis:hover{background:rgba(245,200,66,.2)}
+  .link-ej{background:rgba(100,200,100,.1);border:1px solid rgba(100,200,100,.25);color:#7ee87e}
+  .link-ej:hover{background:rgba(100,200,100,.2)}
+  .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:12px;color:rgba(245,200,66,.8);line-height:1.6;margin-top:16px}
+  .tip-box strong{color:var(--gold)}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grid-lines"></div>
+<div class="wrapper">
+  <a class="back" href="puc-conecta.html">← Voltar ao início</a>
+  <div class="page-header">
+    <div class="page-badge">🚀 Além da sala de aula</div>
+    <h1>Oportunidades &amp; <span>Extensão</span></h1>
+    <p class="page-subtitle">Quer mais do que assistir aula? Aqui começa a diferença no seu currículo.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- ECOA -->
+  <div class="org-card section">
+    <div class="org-head">
+      <div class="org-icon oi-ecoa">🌱</div>
+      <div class="org-meta">
+        <div class="org-name">ECOA</div>
+        <div class="org-tagline">Empreendedorismo &amp; Inovação na PUC</div>
+      </div>
+    </div>
+    <div class="org-desc">O ECOA é o ecossistema de inovação e empreendedorismo da PUC-Rio. Oferece programas como o Summer ECOA, mentorias, hackathons e suporte para quem quer transformar uma ideia em projeto real.</div>
+    <div class="org-tags">
+      <span class="org-tag">Empreendedorismo</span>
+      <span class="org-tag">Startups</span>
+      <span class="org-tag">Hackathon</span>
+      <span class="org-tag">Mentoria</span>
+      <span class="org-tag">Horas Complementares</span>
+    </div>
+    <a class="org-link link-ecoa" href="https://ecoa.puc-rio.br" target="_blank">Conhecer o ECOA ↗</a>
+  </div>
+
+  <!-- Gênesis -->
+  <div class="org-card section">
+    <div class="org-head">
+      <div class="org-icon oi-genesis">💡</div>
+      <div class="org-meta">
+        <div class="org-name">Gênesis</div>
+        <div class="org-tagline">Instituto de Inovação e Negócios</div>
+      </div>
+    </div>
+    <div class="org-desc">O Instituto Gênesis apoia a criação de empresas e projetos inovadores com base na PUC-Rio. É um dos programas de empreendedorismo universitário mais tradicionais do Brasil — com aceleração, incubação e conexão com o mercado.</div>
+    <div class="org-tags">
+      <span class="org-tag">Incubadora</span>
+      <span class="org-tag">Startups</span>
+      <span class="org-tag">Aceleração</span>
+      <span class="org-tag">Networking</span>
+    </div>
+    <a class="org-link link-genesis" href="https://genesis.puc-rio.br" target="_blank">Conhecer o Gênesis ↗</a>
+  </div>
+
+  <!-- EJ -->
+  <div class="org-card section">
+    <div class="org-head">
+      <div class="org-icon oi-ej">🏢</div>
+      <div class="org-meta">
+        <div class="org-name">Empresa Júnior</div>
+        <div class="org-tagline">Consultoria feita por alunos</div>
+      </div>
+    </div>
+    <div class="org-desc">A Empresa Júnior da PUC-Rio é gerida por alunos e oferece projetos reais de consultoria para clientes externos. É uma das experiências práticas mais valorizadas por empresas — você aprende fazendo, com autonomia e responsabilidade.</div>
+    <div class="org-tags">
+      <span class="org-tag">Consultoria</span>
+      <span class="org-tag">Liderança</span>
+      <span class="org-tag">Projetos reais</span>
+      <span class="org-tag">Horas Complementares</span>
+    </div>
+    <a class="org-link link-ej" href="https://www.puc-rio.br" target="_blank">Conhecer a EJ ↗</a>
+  </div>
+
+  <div class="tip-box">
+    <strong>💡 Dica:</strong> Participar de qualquer uma dessas organizações conta como Atividade Complementar. Dois em um: experiência real + horas no currículo!
+  </div>
+
+</div>
+</body></html>

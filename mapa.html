@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa do Campus · PUC Conecta</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a1628;--accent:#00c2ff;--gold:#f5c842;--white:#f0f4ff;--card-bg:rgba(255,255,255,0.05);--card-border:rgba(0,194,255,0.15)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+  .bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(26,58,110,0.9) 0%,transparent 70%),var(--navy)}
+  .grid-lines{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,194,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,194,255,0.04) 1px,transparent 1px);background-size:60px 60px}
+  .wrapper{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:36px 24px 80px}
+  .back{display:inline-flex;align-items:center;gap:8px;color:rgba(240,244,255,0.45);font-size:13px;text-decoration:none;margin-bottom:32px;transition:color .2s}.back:hover{color:var(--accent)}
+  .page-header{margin-bottom:32px;animation:fadeDown .7s ease both}
+  .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(100,200,100,0.1);border:1px solid rgba(100,200,100,0.3);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7ee87e;margin-bottom:14px}
+  h1{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:10px}
+  h1 span{color:var(--accent)}
+  .page-subtitle{font-size:14px;font-weight:300;color:rgba(240,244,255,.5);line-height:1.6}
+  .divider{width:36px;height:2px;background:linear-gradient(90deg,#7ee87e,transparent);margin:16px 0}
+  .map-container{border-radius:18px;overflow:hidden;border:1px solid var(--card-border);margin-bottom:24px;animation:fadeUp .6s .1s ease both;position:relative}
+  .map-container iframe{display:block;width:100%;height:360px;border:none}
+  .map-open-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.3);border-radius:12px;padding:12px;color:var(--accent);font-size:13px;font-weight:500;text-decoration:none;margin-bottom:24px;transition:background .2s;animation:fadeUp .6s .15s ease both}
+  .map-open-btn:hover{background:rgba(0,194,255,0.18)}
+  .section{margin-bottom:28px;animation:fadeUp .6s ease both}
+  .section:nth-child(4){animation-delay:.2s}.section:nth-child(5){animation-delay:.3s}.section:nth-child(6){animation-delay:.4s}
+  .section-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;opacity:.8}
+  .place-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:14px 16px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;backdrop-filter:blur(12px)}
+  .place-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+  .place-body .place-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:3px}
+  .place-body .place-info{font-size:11px;font-weight:300;color:rgba(240,244,255,.5);line-height:1.5}
+  .place-body .place-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:100px;background:rgba(0,194,255,.1);border:1px solid rgba(0,194,255,.2);color:var(--accent);margin-top:5px;margin-right:4px}
+  .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:12px;color:rgba(245,200,66,.8);line-height:1.6}
+  .tip-box strong{color:var(--gold)}
+  .collab-box{background:rgba(0,194,255,.05);border:1px solid rgba(0,194,255,.2);border-radius:12px;padding:16px;font-size:12px;color:rgba(240,244,255,.6);line-height:1.7;margin-top:12px}
+  .collab-box strong{color:var(--accent);display:block;margin-bottom:6px;font-size:13px}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grid-lines"></div>
+<div class="wrapper">
+  <a class="back" href="puc-conecta.html">← Voltar ao início</a>
+  <div class="page-header">
+    <div class="page-badge">🗺️ Navegue pelo campus</div>
+    <h1>Mapa do <span>Campus</span></h1>
+    <p class="page-subtitle">Onde fica cada coisa na PUC — restaurantes, prédios, labs, descanso e mais.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Mapa embedado -->
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.356!2d-43.2346!3d-22.9795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bce616c05bd09%3A0x3f30d44abddfe31f!2sPUC-Rio%20-%20Pontif%C3%ADcia%20Universidade%20Cat%C3%B3lica%20do%20Rio%20de%20Janeiro!5e0!3m2!1spt-BR!2sbr!4v1"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <a class="map-open-btn" href="https://maps.app.goo.gl/PUCRio" target="_blank">
+    🗺️ Abrir mapa completo no Google Maps
+  </a>
+
+  <!-- Onde comer -->
+  <div class="section">
+    <div class="section-title">🍽️ Onde comer</div>
+
+    <div class="place-card">
+      <div class="place-icon">🏠</div>
+      <div class="place-body">
+        <div class="place-name">Bandejão (RU)</div>
+        <div class="place-info">Restaurante Universitário principal. Almoço com preço subsidiado para alunos. Localizado próximo ao Lago.</div>
+        <span class="place-tag">Almoço</span><span class="place-tag">Preço acessível</span>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-icon">☕</div>
+      <div class="place-body">
+        <div class="place-name">Lanchonetes e Cantinas</div>
+        <div class="place-info">Espalhadas pelos prédios principais — Kennedy, Cardeal Leme e RDC. Sanduíches, café e salgados.</div>
+        <span class="place-tag">Rápido</span><span class="place-tag">Vários prédios</span>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-icon">🔥</div>
+      <div class="place-body">
+        <div class="place-name">Onde esquentar marmita</div>
+        <div class="place-info">Micro-ondas disponíveis no RU e em alguns prédios. Pergunte na portaria do seu prédio — cada um tem sua regra.</div>
+        <span class="place-tag">Micro-ondas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onde estudar -->
+  <div class="section">
+    <div class="section-title">📚 Onde estudar</div>
+
+    <div class="place-card">
+      <div class="place-icon">📖</div>
+      <div class="place-body">
+        <div class="place-name">Biblioteca Central (BIB)</div>
+        <div class="place-info">Maior espaço de estudo do campus. Cabines individuais, salas em grupo e acervo físico/digital.</div>
+        <span class="place-tag">Silêncio</span><span class="place-tag">Wi-Fi</span><span class="place-tag">Ar-condicionado</span>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-icon">💻</div>
+      <div class="place-body">
+        <div class="place-name">Labs do RDC</div>
+        <div class="place-info">Computadores disponíveis para alunos em horário comercial. Impressão e acesso a softwares especializados.</div>
+        <span class="place-tag">Computadores</span><span class="place-tag">Impressão</span>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-icon">🌳</div>
+      <div class="place-body">
+        <div class="place-name">Área externa / Lago</div>
+        <div class="place-info">Espaços abertos com mesas e bancos espalhados pelo campus. Ótimo pra estudar ou respirar entre aulas.</div>
+        <span class="place-tag">Ao ar livre</span><span class="place-tag">Descanso</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Descanso -->
+  <div class="section">
+    <div class="section-title">😴 Onde descansar na aula vaga</div>
+
+    <div class="place-card">
+      <div class="place-icon">🛋️</div>
+      <div class="place-body">
+        <div class="place-name">Áreas de convivência dos centros</div>
+        <div class="place-info">Cada centro tem uma área de convivência com sofás ou cadeiras. CTC, CCS e CTCH têm os melhores espaços.</div>
+      </div>
+    </div>
+
+    <div class="place-card">
+      <div class="place-icon">⛲</div>
+      <div class="place-body">
+        <div class="place-name">Entorno do Lago</div>
+        <div class="place-info">O ponto mais charmoso do campus. Muita gente usa pra relaxar, comer ou simplesmente existir entre aulas.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>💡 Dica:</strong> O campus da PUC fica na Gávea — dentro da Reserva da Tijuca. Tem muito verde e trilhas perto. Vale explorar além dos prédios!
+  </div>
+
+  <div class="collab-box">
+    <strong>🙌 Ajude a melhorar esse mapa!</strong>
+    Sabe de algum lugar que falta aqui? Manda pra gente pelo Instagram do PUC Conecta e a gente adiciona. O mapa é colaborativo!
+  </div>
+</div>
+</body></html>
