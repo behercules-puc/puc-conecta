@@ -12,56 +12,59 @@
   .bg{position:fixed;inset:0;z-index:0;background:var(--bg-gradient)}
   .grid-lines{position:fixed;inset:0;z-index:0;background-image:linear-gradient(var(--grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--grid-color) 1px,transparent 1px);background-size:60px 60px}
   .wrapper{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:36px 24px 80px}
-  .theme-toggle{position:fixed;top:16px;right:16px;z-index:10;background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:15px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
-  .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
-  .back{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:16px;text-decoration:none;margin-bottom:32px;transition:color .2s}.back:hover{color:var(--accent)}
+  .top-controls{position:fixed;top:16px;right:16px;z-index:10;display:flex;gap:8px}
+  .ctrl-btn{background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn.active-lang{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--accent)}
+  .back{display:inline-flex;align-items:center;gap:8px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:32px;transition:color .2s}.back:hover{color:var(--accent)}
   .page-header{margin-bottom:36px;animation:fadeDown .7s ease both}
-  .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.3);border-radius:100px;padding:5px 12px;font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-  h1{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:10px;color:var(--text-main)}
+  .page-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,194,255,0.1);border:1px solid rgba(0,194,255,0.3);border-radius:100px;padding:5px 12px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  h1{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:10px;color:var(--text-main)}
   h1 span{color:var(--accent)}
-  .page-subtitle{font-size:15px;font-weight:300;color:var(--text-muted);line-height:1.6}
+  .page-subtitle{font-size:14px;font-weight:300;color:var(--text-muted);line-height:1.6}
   .divider{width:36px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin:16px 0}
   .section{margin-bottom:32px;animation:fadeUp .6s ease both}
-  .section:nth-child(2){animation-delay:.1s}.section:nth-child(3){animation-delay:.2s}
-  .section-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;opacity:.8}
-  .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--text-main);display:block;margin-bottom:10px;transition:transform .2s,border-color .2s,background .2s;backdrop-filter:blur(12px)}
+  .section-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;opacity:.8}
+  .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:18px 20px;text-decoration:none;color:var(--text-main);display:block;margin-bottom:10px;transition:transform .2s,border-color .2s;backdrop-filter:blur(12px)}
   .card:hover{transform:translateY(-2px);border-color:rgba(0,194,255,.4);filter:brightness(1.05)}
   .card-row{display:flex;align-items:center;gap:14px}
-  .card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-  .ic1{background:rgba(0,194,255,0.12)}.ic2{background:rgba(245,200,66,0.12)}.ic3{background:rgba(100,200,100,0.12)}.ic4{background:rgba(255,130,100,0.12)}
+  .card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .ic1{background:rgba(0,194,255,0.12)}.ic2{background:rgba(245,200,66,0.12)}.ic3{background:rgba(100,200,100,0.12)}
   .card-body{flex:1}
-  .card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:3px;color:var(--text-main)}
-  .card-desc{font-size:15px;font-weight:300;color:var(--text-muted);line-height:1.5}
-  .card-arrow{font-size:15px;opacity:.35;transition:opacity .2s,transform .2s,color .2s}
+  .card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:3px;color:var(--text-main)}
+  .card-desc{font-size:12px;font-weight:300;color:var(--text-muted);line-height:1.5}
+  .card-arrow{font-size:14px;opacity:.35;transition:opacity .2s,transform .2s,color .2s}
   .card:hover .card-arrow{opacity:1;transform:translateX(4px);color:var(--accent)}
-  .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:15px;color:rgba(245,200,66,.85);line-height:1.6}
+  .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:12px;color:rgba(245,200,66,.85);line-height:1.6}
   .tip-box strong{color:var(--gold)}
-  [data-theme="light"] .tip-box{background:rgba(200,150,10,.07);border-color:rgba(200,150,10,.25);color:rgba(130,90,0,.9)}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="grid-lines"></div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Modo escuro</button>
+<div class="top-controls">
+  <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 <div class="wrapper">
-<a class="back" href="index.html">← Voltar ao início</a>
+<a class="back" href="index.html" data-pt="← Voltar ao início" data-en="← Back to home">← Voltar ao início</a>
   <div class="page-header">
-    <div class="page-badge">🏛️ Começo de tudo</div>
-    <h1>Conheça a <span>PUC</span></h1>
-    <p class="page-subtitle">Entenda como funciona a universidade, descubra os espaços do campus e encontre o que você precisa.</p>
+    <div class="page-badge" data-pt="🏛️ Começo de tudo" data-en="🏛️ The beginning">🏛️ Começo de tudo</div>
+    <h1 data-pt="Conheça a <span>PUC</span>" data-en="Discover <span>PUC</span>">Conheça a <span>PUC</span></h1>
+    <p class="page-subtitle" data-pt="Entenda como funciona a universidade, descubra os espaços do campus e encontre o que você precisa." data-en="Understand how the university works, discover campus spaces and find what you need.">Entenda como funciona a universidade, descubra os espaços do campus e encontre o que você precisa.</p>
     <div class="divider"></div>
   </div>
 
   <div class="section">
-    <div class="section-title">Links oficiais</div>
+    <div class="section-title" data-pt="Links oficiais" data-en="Official links">Links oficiais</div>
 
     <a class="card" href="https://www.puc-rio.br/manualdocalouro/" target="_blank">
       <div class="card-row">
         <div class="card-icon ic1">📖</div>
         <div class="card-body">
-          <div class="card-title">Manual do Calouro</div>
-          <div class="card-desc">O guia oficial da PUC com tudo que você precisa pro seu primeiro semestre</div>
+          <div class="card-title" data-pt="Manual do Calouro" data-en="Freshman Guide">Manual do Calouro</div>
+          <div class="card-desc" data-pt="O guia oficial da PUC com tudo que você precisa pro seu primeiro semestre" data-en="The official PUC guide with everything you need for your first semester">O guia oficial da PUC com tudo que você precisa pro seu primeiro semestre</div>
         </div>
         <div class="card-arrow">↗</div>
       </div>
@@ -71,8 +74,8 @@
       <div class="card-row">
         <div class="card-icon ic2">🎓</div>
         <div class="card-body">
-          <div class="card-title">Sobre a PUC & Procedimentos</div>
-          <div class="card-desc">Matrícula, documentos, prazos e tudo que o aluno precisa para não perder informações importantes.</div>
+          <div class="card-title" data-pt="Sobre a PUC & Procedimentos" data-en="About PUC & Procedures">Sobre a PUC & Procedimentos</div>
+          <div class="card-desc" data-pt="Matrícula, documentos, prazos e tudo que o aluno precisa para não perder informações importantes." data-en="Enrollment, documents, deadlines and everything students need to stay on top of important information.">Matrícula, documentos, prazos e tudo que o aluno precisa para não perder informações importantes.</div>
         </div>
         <div class="card-arrow">↗</div>
       </div>
@@ -82,8 +85,8 @@
       <div class="card-row">
         <div class="card-icon ic3">📅</div>
         <div class="card-body">
-          <div class="card-title">Calendário Acadêmico</div>
-          <div class="card-desc">Veja datas de matrícula, provas, trancamento, início das aulas e principais prazos da universidade.</div>
+          <div class="card-title" data-pt="Calendário Acadêmico" data-en="Academic Calendar">Calendário Acadêmico</div>
+          <div class="card-desc" data-pt="Veja datas de matrícula, provas, trancamento, início das aulas e principais prazos da universidade." data-en="Check enrollment dates, exams, withdrawals, class start dates and key university deadlines.">Veja datas de matrícula, provas, trancamento, início das aulas e principais prazos da universidade.</div>
         </div>
         <div class="card-arrow">↗</div>
       </div>
@@ -91,14 +94,14 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Criado por nós 🛠️</div>
+    <div class="section-title" data-pt="Criado por nós 🛠️" data-en="Created by us 🛠️">Criado por nós 🛠️</div>
 
     <a class="card" href="mapa.html">
       <div class="card-row">
         <div class="card-icon ic3">🗺️</div>
         <div class="card-body">
-          <div class="card-title">Mapa do Campus</div>
-          <div class="card-desc">Onde fica cada prédio, lab, restaurante e espaço de descanso</div>
+          <div class="card-title" data-pt="Mapa do Campus" data-en="Campus Map">Mapa do Campus</div>
+          <div class="card-desc" data-pt="Onde fica cada prédio, lab, restaurante e espaço de descanso" data-en="Where to find each building, lab, restaurant and rest area">Onde fica cada prédio, lab, restaurante e espaço de descanso</div>
         </div>
         <div class="card-arrow">→</div>
       </div>
@@ -106,12 +109,27 @@
   </div>
 
   <div class="tip-box">
-    <strong>💡 Dica de calouro:</strong> O Manual do Calouro tem informações sobre o Nível de Português — uma prova obrigatória que muita gente esquece de fazer no primeiro semestre!
+    <strong data-pt="💡 Dica de calouro:" data-en="💡 Freshman tip:">💡 Dica de calouro:</strong>
+    <span data-pt=" O Manual do Calouro tem informações sobre o Nível de Português — uma prova obrigatória que muita gente esquece de fazer no primeiro semestre!" data-en=" The Freshman Guide has info about the Portuguese Proficiency Test — a mandatory exam that many students forget to take in their first semester!"> O Manual do Calouro tem informações sobre o Nível de Português — uma prova obrigatória que muita gente esquece de fazer no primeiro semestre!</span>
   </div>
 </div>
 
 <script>
-  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeBtn');if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');b.textContent='🌙 Modo escuro';localStorage.setItem('puc-theme','dark')}else{h.setAttribute('data-theme','light');b.textContent='☀️ Modo claro';localStorage.setItem('puc-theme','light')}}
-  const saved=localStorage.getItem('puc-theme');if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️ Modo claro'}
+function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeBtn');if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');b.textContent='🌙';localStorage.setItem('puc-theme','dark')}else{h.setAttribute('data-theme','light');b.textContent='☀️';localStorage.setItem('puc-theme','light')}}
+const savedTheme=localStorage.getItem('puc-theme');if(savedTheme==='light'){document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️'}
+var currentLang=localStorage.getItem('puc-lang')||'pt';
+function applyLang(lang){
+  document.querySelectorAll('[data-pt]').forEach(function(el){
+    var pt=el.getAttribute('data-pt'),en=el.getAttribute('data-en');
+    if(el.tagName==='H1'||el.innerHTML.indexOf('<span')>-1){el.innerHTML=lang==='en'?en:pt;}
+    else{el.textContent=lang==='en'?en:pt;}
+  });
+  var btn=document.getElementById('langBtn');
+  if(btn){btn.textContent=lang==='en'?'PT':'EN';btn.classList.toggle('active-lang',lang==='en');}
+  document.documentElement.lang=lang==='en'?'en':'pt-BR';
+  localStorage.setItem('puc-lang',lang);currentLang=lang;
+}
+function toggleLang(){applyLang(currentLang==='pt'?'en':'pt');}
+applyLang(currentLang);
 </script>
 </body></html>
