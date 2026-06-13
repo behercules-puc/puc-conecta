@@ -21,9 +21,11 @@
   h1 span{color:var(--accent)}
   .page-subtitle{font-size:14px;font-weight:300;color:var(--text-muted);line-height:1.6}
   .divider{width:36px;height:2px;background:linear-gradient(90deg,#7ee87e,transparent);margin:16px 0}
-  .section{margin-bottom:32px;animation:fadeUp .6s ease both}
+  .section{margin-bottom:36px;animation:fadeUp .6s ease both}
   .section:nth-child(3){animation-delay:.1s}.section:nth-child(4){animation-delay:.2s}.section:nth-child(5){animation-delay:.3s}
   .section-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;opacity:.8}
+
+  /* Cardápio tabs */
   .tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
   .tab{padding:7px 16px;border-radius:100px;border:1px solid rgba(0,194,255,.25);background:transparent;color:var(--text-muted);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
   .tab.active{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--text-main)}
@@ -34,11 +36,36 @@
   .menu-item:last-child{border-bottom:none;padding-bottom:0}
   .menu-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;margin-top:6px;flex-shrink:0}
   .menu-item-text{font-size:13px;font-weight:300;color:var(--text-main);line-height:1.4}
+
+  /* Tabs de alimentação */
+  .food-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .ftab{padding:6px 14px;border-radius:100px;border:1px solid rgba(0,194,255,.2);background:transparent;color:var(--text-muted);font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .ftab.active{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--text-main)}
+  .food-panel{display:none}.food-panel.active{display:block}
+
+  /* Food cards */
+  .food-zone{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:16px 18px;margin-bottom:10px;backdrop-filter:blur(12px)}
+  .food-zone-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:10px;color:var(--text-main);display:flex;align-items:center;gap:8px}
+  .food-list{display:flex;flex-direction:column;gap:4px}
+  .food-item{font-size:12px;font-weight:300;color:var(--text-muted);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:8px}
+  .food-item:last-child{border-bottom:none}
+  .food-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0}
+
+  /* Ranking cards */
+  .rank-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:14px 16px;margin-bottom:8px;backdrop-filter:blur(12px);display:flex;align-items:flex-start;gap:12px}
+  .rank-emoji{font-size:22px;flex-shrink:0}
+  .rank-body{}
+  .rank-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text-main);margin-bottom:3px}
+  .rank-desc{font-size:11px;font-weight:300;color:var(--text-muted);line-height:1.5}
+
+  /* Info cards */
   .info-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:16px 18px;margin-bottom:10px;backdrop-filter:blur(12px)}
   .info-card-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px;color:var(--text-main)}
   .info-card-text{font-size:12px;font-weight:300;color:var(--text-muted);line-height:1.6}
+
   .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:12px;color:rgba(245,200,66,.85);line-height:1.6;margin-top:8px}
   .tip-box strong{color:var(--gold)}
+
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -51,10 +78,11 @@
   <div class="page-header">
     <div class="page-badge">☕ Sobrevivência diária</div>
     <h1>Vida no <span>Campus</span></h1>
-    <p class="page-subtitle">Cardápio da semana, onde estudar, onde descansar — tudo num lugar só.</p>
+    <p class="page-subtitle">Cardápio da semana, onde comer, estudar e descansar — tudo num lugar só.</p>
     <div class="divider"></div>
   </div>
 
+  <!-- CARDÁPIO DO RU -->
   <div class="section">
     <div class="section-title">🍽️ Cardápio do RU · Semana atual</div>
     <div class="tabs">
@@ -65,8 +93,15 @@
       <button class="tab" onclick="showDay('sex',this)">Sex</button>
     </div>
     <div id="seg" class="menu-day active">
-      <div class="menu-card"><div class="menu-meal">Almoço</div><div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha com o cardápio real aqui</em></div></div><div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">Arroz + Feijão + Salada</div></div></div>
-      <div class="menu-card"><div class="menu-meal">Jantar</div><div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha com o cardápio real aqui</em></div></div></div>
+      <div class="menu-card">
+        <div class="menu-meal">Almoço</div>
+        <div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha com o cardápio real aqui</em></div></div>
+        <div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">Arroz + Feijão + Salada</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-meal">Jantar</div>
+        <div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha com o cardápio real aqui</em></div></div>
+      </div>
     </div>
     <div id="ter" class="menu-day"><div class="menu-card"><div class="menu-meal">Almoço</div><div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha aqui</em></div></div></div></div>
     <div id="qua" class="menu-day"><div class="menu-card"><div class="menu-meal">Almoço</div><div class="menu-item"><div class="menu-dot"></div><div class="menu-item-text">✏️ <em>Preencha aqui</em></div></div></div></div>
@@ -75,23 +110,172 @@
     <div class="tip-box"><strong>💡 Como atualizar:</strong> A PUC divulga o cardápio semanalmente. Edite os itens com ✏️ quando sair.</div>
   </div>
 
+  <!-- ONDE COMER -->
   <div class="section">
-    <div class="section-title">📚 Onde estudar</div>
-    <div class="info-card"><div class="info-card-title">📖 Biblioteca Central — Frings (BIB)</div><div class="info-card-text">Cabines individuais, salas para grupo e acervo físico e digital. Melhor opção para estudo silencioso.</div></div>
-    <div class="info-card"><div class="info-card-title">💻 Labs RDC</div><div class="info-card-text">Computadores abertos para alunos em horário comercial. Ideal pra quem não quer carregar o notebook.</div></div>
-    <div class="info-card"><div class="info-card-title">🌳 Áreas externas</div><div class="info-card-text">Mesas espalhadas pelo campus, em especial perto do rio. Wi-Fi disponível ao ar livre.</div></div>
+    <div class="section-title">🗺️ Onde comer no campus</div>
+
+    <div class="food-tabs">
+      <button class="ftab active" onclick="showFood('leme',this)">🏛️ Leme</button>
+      <button class="ftab" onclick="showFood('kennedy',this)">🎓 Kennedy/Frings</button>
+      <button class="ftab" onclick="showFood('fora',this)">🚪 Fora da PUC</button>
+      <button class="ftab" onclick="showFood('ranking',this)">⭐ Ranking</button>
+    </div>
+
+    <!-- LEME -->
+    <div id="leme" class="food-panel active">
+      <div class="food-zone">
+        <div class="food-zone-title">🏛️ Lanchonetes & Restaurantes — Ala Leme</div>
+        <div class="food-list">
+          <div class="food-item"><div class="food-dot"></div>🍣 Soba Sushi</div>
+          <div class="food-item"><div class="food-dot"></div>🍽️ Cardeal</div>
+          <div class="food-item"><div class="food-dot"></div>🥗 Na Medida</div>
+          <div class="food-item"><div class="food-dot"></div>☕ California Coffee</div>
+          <div class="food-item"><div class="food-dot"></div>🍴 Geneal</div>
+          <div class="food-item"><div class="food-dot"></div>🧃 Rei do Mate</div>
+          <div class="food-item"><div class="food-dot"></div>🍺 Bar das Freiras</div>
+          <div class="food-item"><div class="food-dot"></div>🧉 Mega Mate</div>
+          <div class="food-item"><div class="food-dot"></div>🍔 Lemax Burgers</div>
+          <div class="food-item"><div class="food-dot"></div>🍱 Porto do Sabor</div>
+          <div class="food-item"><div class="food-dot"></div>🍽️ Cantina dos Funcionários</div>
+          <div class="food-item"><div class="food-dot"></div>🫐 Oakberry</div>
+        </div>
+      </div>
+      <div class="tip-box"><strong>💡 Dica:</strong> O Bar das Freiras é o point mais tradicional da PUC. A Cantina dos Funcionários é menos conhecida mas tem ótimo preço.</div>
+    </div>
+
+    <!-- KENNEDY/FRINGS -->
+    <div id="kennedy" class="food-panel">
+      <div class="food-zone">
+        <div class="food-zone-title">🎓 Kennedy & Frings</div>
+        <div class="food-list">
+          <div class="food-item"><div class="food-dot"></div>🍟 Fastway</div>
+          <div class="food-item"><div class="food-dot"></div>🍱 Japaway</div>
+          <div class="food-item"><div class="food-dot"></div>🍽️ Bandejão — subsolo (acesso também pelas casinhas)</div>
+        </div>
+      </div>
+      <div class="food-zone">
+        <div class="food-zone-title">🚚 Food Trucks</div>
+        <div class="food-list">
+          <div class="food-item"><div class="food-dot"></div>🫔 Las Empanadas</div>
+          <div class="food-item"><div class="food-dot"></div>🍲 Gata Food Sûpô</div>
+          <div class="food-item"><div class="food-dot"></div>🍿 Pipoca dos Céus</div>
+          <div class="food-item"><div class="food-dot"></div>🧆 Make Falafel Not War (Kebab)</div>
+          <div class="food-item"><div class="food-dot"></div>🍣 Japa em Alta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORA DA PUC -->
+    <div id="fora" class="food-panel">
+      <div class="food-zone">
+        <div class="food-zone-title">🚪 Lado de fora da PUC</div>
+        <div class="food-list">
+          <div class="food-item"><div class="food-dot"></div>🎂 Banca — brigadeiros, brownies, palha italiana, bolos no pote, tortas, balas, refrigerantes, energéticos</div>
+          <div class="food-item"><div class="food-dot"></div>🧉 Ney Mate</div>
+          <div class="food-item"><div class="food-dot"></div>🍬 Doces</div>
+          <div class="food-item"><div class="food-dot"></div>🌯 Wrap</div>
+          <div class="food-item"><div class="food-dot"></div>🥪 Merendas</div>
+          <div class="food-item"><div class="food-dot"></div>🥪 Misto</div>
+          <div class="food-item"><div class="food-dot"></div>🧀 Pão de Queijo</div>
+          <div class="food-item"><div class="food-dot"></div>🌭 Cachorro Quente</div>
+          <div class="food-item"><div class="food-dot"></div>🍖 Quentinha Churras</div>
+          <div class="food-item"><div class="food-dot"></div>🥩 Strogonoff</div>
+          <div class="food-item"><div class="food-dot"></div>🍕 Pizza e Hambúrguer</div>
+          <div class="food-item"><div class="food-dot"></div>🍧 Açaí</div>
+          <div class="food-item"><div class="food-dot"></div>🍗 Frango</div>
+          <div class="food-item"><div class="food-dot"></div>🫔 Tapioca</div>
+          <div class="food-item"><div class="food-dot"></div>🍪 Cookie</div>
+          <div class="food-item"><div class="food-dot"></div>🍝 Lasanha / Escondidinho</div>
+          <div class="food-item"><div class="food-dot"></div>🍝 Massas</div>
+          <div class="food-item"><div class="food-dot"></div>🍜 Yakisoba</div>
+          <div class="food-item"><div class="food-dot"></div>🍿 Pipoca</div>
+          <div class="food-item"><div class="food-dot"></div>🌰 Amêndoa Caramelizada</div>
+          <div class="food-item"><div class="food-dot"></div>🥥 Água de Coco</div>
+        </div>
+      </div>
+      <div class="tip-box"><strong>💡 Dica:</strong> A Banca tem opções de doces artesanais incríveis — ótima pedida no intervalo entre aulas!</div>
+    </div>
+
+    <!-- RANKING -->
+    <div id="ranking" class="food-panel">
+      <div class="rank-card"><div class="rank-emoji">💰</div><div class="rank-body"><div class="rank-title">Mais econômico</div><div class="rank-desc">Bandejão (RU) — menor preço, mais completo</div></div></div>
+      <div class="rank-card"><div class="rank-emoji">🍟</div><div class="rank-body"><div class="rank-title">Mais tradicional</div><div class="rank-desc">Bar das Freiras — o point histórico da PUC</div></div></div>
+      <div class="rank-card"><div class="rank-emoji">☕</div><div class="rank-body"><div class="rank-title">Café + notebook</div><div class="rank-desc">California Coffee — boa estrutura para trabalhar</div></div></div>
+      <div class="rank-card"><div class="rank-emoji">🧃</div><div class="rank-body"><div class="rank-title">Lanche rápido</div><div class="rank-desc">Mega Mate / Rei do Mate — rápido e prático</div></div></div>
+      <div class="rank-card"><div class="rank-emoji">🍱</div><div class="rank-body"><div class="rank-title">Almoço mais completo</div><div class="rank-desc">Na Medida / Porto do Sabor — refeição caprichada</div></div></div>
+      <div class="tip-box"><strong>💡 Dica:</strong> Para vegetarianos, o Bandejão sempre tem opção sem carne e o Na Medida costuma ter boas alternativas também.</div>
+    </div>
   </div>
 
+  <!-- MICRO-ONDAS -->
+  <div class="section">
+    <div class="section-title">🔥 Onde esquentar comida</div>
+    <div class="info-card">
+      <div class="info-card-title">♨️ Micro-ondas disponíveis</div>
+      <div class="info-card-text">
+        O Bandejão (RU) tem micro-ondas disponíveis para todos os alunos. Algumas casinhas também têm — vale perguntar no balcão. Nos prédios, cada secretaria tem sua própria regra, então vale confirmar com a portaria do seu departamento.
+      </div>
+    </div>
+  </div>
+
+  <!-- ONDE ESTUDAR -->
+  <div class="section">
+    <div class="section-title">📚 Onde estudar</div>
+    <div class="info-card">
+      <div class="info-card-title">📖 Biblioteca Cardeal Leme</div>
+      <div class="info-card-text">Fica dentro do Cardeal Leme. Menor e mais tranquila que a Frings — boa para estudo rápido entre aulas. Acervo de Psicologia, Filosofia, Teologia e áreas do CTCH.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">📚 Biblioteca Central — Frings (BIB)</div>
+      <div class="info-card-text">Maior espaço de estudo do campus. Cabines individuais, salas para grupo e acervo físico e digital (Portal Capes). Silêncio obrigatório na maior parte dos andares. Melhor opção para estudo longo.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">💻 Labs RDC</div>
+      <div class="info-card-text">Computadores abertos para alunos em horário comercial. Ideal pra quem não quer carregar o notebook. Impressão grátis disponível.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">🌳 Áreas externas — Bosque & Rio</div>
+      <div class="info-card-text">Mesas e bancos espalhados pelo campus, em especial perto do rio que corta o campus. Wi-Fi disponível e muito mais agradável em dias de calor.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">🔌 Locais com tomada</div>
+      <div class="info-card-text">As melhores opções para carregar o celular ou notebook são: Biblioteca Frings (cabines individuais têm tomada), California Coffee, Labs do RDC e as áreas de convivência dos centros (CTC, CTCH). Evite depender das salas de aula — poucas têm tomada acessível.</div>
+    </div>
+  </div>
+
+  <!-- AULA VAGA -->
   <div class="section">
     <div class="section-title">😌 Na aula vaga</div>
-    <div class="info-card"><div class="info-card-title">⛲ Entorno do Rio</div><div class="info-card-text">O ponto mais característico da PUC. Bancos, natureza e o som do chafariz. O lugar perfeito para descansar entre aulas.</div></div>
-    <div class="info-card"><div class="info-card-title">🛋️ Áreas de convivência</div><div class="info-card-text">Cada centro tem a sua. CTC, CTCH e CCS têm espaços com sofás e poltronas.</div></div>
+    <div class="info-card"><div class="info-card-title">⛲ Entorno do Rio</div><div class="info-card-text">O ponto mais característico da PUC. Bancos, natureza e o chafariz. O lugar perfeito para descansar entre aulas — especialmente no final da tarde.</div></div>
+    <div class="info-card"><div class="info-card-title">🛋️ Áreas de convivência</div><div class="info-card-text">Cada centro tem a sua. CTC, CTCH e CCS têm espaços com sofás e poltronas. Pergunte no seu prédio!</div></div>
     <a class="info-card" href="mapa.html" style="text-decoration:none;display:block;cursor:pointer;border-color:rgba(0,194,255,.3)"><div class="info-card-title">🗺️ Ver no Mapa do Campus →</div><div class="info-card-text">Localize visualmente todos esses espaços no mapa interativo.</div></a>
   </div>
+
+  <!-- LIVRARIAS -->
+  <div class="section">
+    <div class="section-title">📕 Livrarias</div>
+    <div class="info-card">
+      <div class="info-card-title">📚 Livraria PUC-Rio</div>
+      <div class="info-card-text">Localizada no campus, tem livros acadêmicos, didáticos e literatura. Alunos da PUC têm desconto com carteirinha. Boa opção para encontrar os livros indicados pelos professores.</div>
+    </div>
+    <div class="tip-box"><strong>💡 Dica:</strong> Antes de comprar, verifique se o livro está disponível na Biblioteca Frings — o acervo é grande e pode economizar bastante!</div>
+  </div>
+
+  <!-- ACHADOS E PERDIDOS -->
+  <div class="section">
+    <div class="section-title">🔍 Achados e Perdidos</div>
+    <div class="info-card">
+      <div class="info-card-title">📦 Onde reportar itens perdidos</div>
+      <div class="info-card-text">Itens encontrados no campus geralmente são levados à portaria do prédio onde foram achados ou à Segurança da PUC, localizada na entrada principal. Para objetos esquecidos em salas de aula, fale com a secretaria do departamento responsável pela aula.</div>
+    </div>
+    <div class="tip-box"><strong>💡 Dica:</strong> Grupos de WhatsApp e o Instagram dos CAs do seu curso costumam ser o jeito mais rápido de achar ou devolver algo perdido no campus.</div>
+  </div>
+
 </div>
 
 <script>
 function showDay(day,btn){document.querySelectorAll('.menu-day').forEach(d=>d.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(day).classList.add('active');btn.classList.add('active');}
+function showFood(id,btn){document.querySelectorAll('.food-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');btn.classList.add('active');}
 function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeBtn');if(h.getAttribute('data-theme')==='light'){h.removeAttribute('data-theme');b.textContent='🌙 Modo escuro';localStorage.setItem('puc-theme','dark')}else{h.setAttribute('data-theme','light');b.textContent='☀️ Modo claro';localStorage.setItem('puc-theme','light')}}
 const saved=localStorage.getItem('puc-theme');if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.getElementById('themeBtn').textContent='☀️ Modo claro'}
 </script>
