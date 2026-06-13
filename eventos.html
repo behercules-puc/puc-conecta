@@ -69,25 +69,33 @@
   .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:15px;color:rgba(245,200,66,.85);line-height:1.6;margin-top:8px}
   .tip-box strong{color:var(--gold)}
 
+  
+  .top-controls{position:fixed;top:16px;right:16px;z-index:10;display:flex;gap:8px}
+  .ctrl-btn{background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn.active-lang{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--accent)}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="grid-lines"></div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Modo escuro</button>
+<div class="top-controls">
+  <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 <div class="wrapper">
-  <a class="back" href="index.html">← Voltar ao início</a>
+  <a class="back" href="index.html" data-pt="← Voltar ao início" data-en="← Back to home">← Voltar ao início</a>
   <div class="page-header">
-    <div class="page-badge">📅 Fique por dentro</div>
-    <h1>Acontecendo na <span>PUC</span></h1>
-    <p class="page-subtitle">Eventos da semana, festas, notícias e o que está rolando no campus agora.</p>
+    <div class="page-badge" data-pt="📅 Fique por dentro" data-en="📅 Stay in the loop">📅 Fique por dentro</div>
+    <h1 data-pt="Acontecendo na <span>PUC</span>" data-en="Happening at <span>PUC</span>">Acontecendo na <span>PUC</span></h1>
+    <p class="page-subtitle" data-pt="Eventos da semana, festas, notícias e o que está rolando no campus agora." data-en="Weekly events, parties, news and what's happening on campus right now.">Eventos da semana, festas, notícias e o que está rolando no campus agora.</p>
     <div class="divider"></div>
   </div>
 
   <!-- PRAZO LIMITADO -->
   <div class="section">
-    <div class="section-title">⏳ Prazo limitado</div>
+    <div class="section-title" data-pt="⏳ Prazo limitado" data-en="⏳ Limited time">⏳ Prazo limitado</div>
 
     <a class="prazo-card" href="https://ecoa.puc-rio.br" target="_blank">
       <div class="prazo-header"><span class="prazo-badge">🔥 Inscrições abertas</span></div>
@@ -115,12 +123,12 @@
 
   <!-- PRÓXIMOS EVENTOS -->
   <div class="section">
-    <div class="section-title">🔥 Próximos eventos</div>
+    <div class="section-title" data-pt="🔥 Próximos eventos" data-en="🔥 Upcoming events">🔥 Próximos eventos</div>
 
     <div class="event-card">
       <div class="event-date"><div class="event-day">✏️</div><div class="event-month">mês</div></div>
       <div class="event-body">
-        <div class="event-title">Adicione o próximo evento aqui</div>
+        <div class="event-title" data-pt="Adicione o próximo evento aqui" data-en="Add the next event here">Adicione o próximo evento aqui</div>
         <div class="event-meta">📍 Local · 🕐 Horário</div>
         <span class="event-tag tag-puc">PUC</span>
       </div>
@@ -129,7 +137,7 @@
     <div class="event-card">
       <div class="event-date"><div class="event-day">✏️</div><div class="event-month">mês</div></div>
       <div class="event-body">
-        <div class="event-title">Segundo evento da semana</div>
+        <div class="event-title" data-pt="Segundo evento da semana" data-en="Second event of the week">Segundo evento da semana</div>
         <div class="event-meta">📍 Local · 🕐 Horário</div>
         <span class="event-tag tag-ecoa">ECOA</span>
       </div>
@@ -140,7 +148,7 @@
 
   <!-- EVENTOS FIXOS -->
   <div class="section">
-    <div class="section-title">🗓️ Eventos fixos do calendário</div>
+    <div class="section-title" data-pt="🗓️ Eventos fixos do calendário" data-en="🗓️ Regular calendar events">🗓️ Eventos fixos do calendário</div>
 
     <div class="recur-card">
       <div class="recur-icon">🎉</div>
@@ -190,7 +198,7 @@
 
   <!-- NOTÍCIAS -->
   <div class="section">
-    <div class="section-title">📰 Notícias & Comunicados</div>
+    <div class="section-title" data-pt="📰 Notícias & Comunicados" data-en="📰 News & Announcements">📰 Notícias & Comunicados</div>
 
     <a class="news-link" href="https://www.puc-rio.br/noticias/" target="_blank">
       <div class="news-icon">🗞️</div>
