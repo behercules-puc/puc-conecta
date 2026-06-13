@@ -71,31 +71,39 @@
   .ctab{padding:7px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text-muted);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;white-space:nowrap}
   .ctab.active{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--text-main)}
   .tab-panel{display:none}.tab-panel.active{display:block}
+  
+  .top-controls{position:fixed;top:16px;right:16px;z-index:10;display:flex;gap:8px}
+  .ctrl-btn{background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn.active-lang{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--accent)}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="grid-lines"></div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Modo escuro</button>
+<div class="top-controls">
+  <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 <div class="wrapper">
-  <a class="back" href="index.html">← Voltar ao início</a>
+  <a class="back" href="index.html" data-pt="← Voltar ao início" data-en="← Back to home">← Voltar ao início</a>
   <div class="page-header">
-    <div class="page-badge">☕ Sobrevivência diária</div>
-    <h1>Vida no <span>Campus</span></h1>
-    <p class="page-subtitle">Cardápio da semana, onde comer, estudar e descansar — tudo num lugar só.</p>
+    <div class="page-badge" data-pt="☕ Sobrevivência diária" data-en="☕ Daily survival">☕ Sobrevivência diária</div>
+    <h1 data-pt="Vida no <span>Campus</span>" data-en="Campus <span>Life</span>">Vida no <span>Campus</span></h1>
+    <p class="page-subtitle" data-pt="Cardápio da semana, onde comer, estudar e descansar — tudo num lugar só." data-en="Weekly menu, where to eat, study and rest — all in one place.">Cardápio da semana, onde comer, estudar e descansar — tudo num lugar só.</p>
     <div class="divider"></div>
   </div>
 
   <!-- CARDÁPIO DO RU -->
     <!-- ABAS PRINCIPAIS -->
   <div class="course-tabs">
-    <button class="ctab active" onclick="showTab('cardapio',this)">🍽️ Cardápio RU</button>
-    <button class="ctab" onclick="showTab('comer',this)">🗺️ Onde comer</button>
-    <button class="ctab" onclick="showTab('estudar',this)">📚 Onde estudar</button>
-    <button class="ctab" onclick="showTab('vaga',this)">😌 Aula vaga</button>
-    <button class="ctab" onclick="showTab('livrarias',this)">📕 Livrarias</button>
-    <button class="ctab" onclick="showTab('achados',this)">🔍 Achados & Perdidos</button>
+    <button class="ctab active" onclick="showTab('cardapio',this)" data-pt="🍽️ Cardápio RU" data-en="🍽️ Cafeteria Menu">🍽️ Cardápio RU</button>
+    <button class="ctab" onclick="showTab('comer',this)" data-pt="🗺️ Onde comer" data-en="🗺️ Where to eat">🗺️ Onde comer</button>
+    <button class="ctab" onclick="showTab('estudar',this)" data-pt="📚 Onde estudar" data-en="📚 Where to study">📚 Onde estudar</button>
+    <button class="ctab" onclick="showTab('vaga',this)" data-pt="😌 Aula vaga" data-en="😌 Free period">😌 Aula vaga</button>
+    <button class="ctab" onclick="showTab('livrarias',this)" data-pt="📕 Livrarias" data-en="📕 Bookstores">📕 Livrarias</button>
+    <button class="ctab" onclick="showTab('achados',this)" data-pt="🔍 Achados & Perdidos" data-en="🔍 Lost & Found">🔍 Achados & Perdidos</button>
   </div>
 
   <!-- CARDÁPIO DO RU -->
