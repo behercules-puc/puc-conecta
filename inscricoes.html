@@ -67,6 +67,11 @@
   .tip-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.2);border-radius:12px;padding:14px 16px;font-size:15px;color:rgba(245,200,66,.85);line-height:1.6;margin-top:8px}
   .tip-box strong{color:var(--gold)}
 
+  
+  .top-controls{position:fixed;top:16px;right:16px;z-index:10;display:flex;gap:8px}
+  .ctrl-btn{background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn.active-lang{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--accent)}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
@@ -74,19 +79,22 @@
 </head>
 <body>
 <div class="bg"></div><div class="grid-lines"></div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Modo escuro</button>
+<div class="top-controls">
+  <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 <div class="wrapper">
-  <a class="back" href="index.html">← Voltar ao início</a>
+  <a class="back" href="index.html" data-pt="← Voltar ao início" data-en="← Back to home">← Voltar ao início</a>
   <div class="page-header">
-    <div class="page-badge"><div class="badge-dot"></div>Corre que fecha!</div>
-    <h1>Inscrições a <span>Expirar</span></h1>
-    <p class="page-subtitle">Processos seletivos, programas e oportunidades com prazo — não deixa passar.</p>
+    <div class="page-badge"><div class="badge-dot"></div data-pt="Corre que fecha!" data-en="Hurry, closing soon!">Corre que fecha!</div>
+    <h1 data-pt="Inscrições a <span>Expirar</span>" data-en="Expiring <span>Registrations</span>">Inscrições a <span>Expirar</span></h1>
+    <p class="page-subtitle" data-pt="Processos seletivos, programas e oportunidades com prazo — não deixa passar." data-en="Selection processes, programs and opportunities with deadlines — don't miss out.">Processos seletivos, programas e oportunidades com prazo — não deixa passar.</p>
     <div class="divider"></div>
   </div>
 
   <!-- ABERTAS AGORA -->
   <div class="section">
-    <div class="section-title">🔥 Abertas agora</div>
+    <div class="section-title" data-pt="🔥 Abertas agora" data-en="🔥 Open now">🔥 Abertas agora</div>
 
     <div class="insc-card urgente">
       <div class="insc-head">
@@ -98,7 +106,7 @@
       </div>
       <div class="insc-desc">O maior programa de empreendedorismo da PUC-Rio. Desenvolva sua ideia com mentoria, workshops intensivos e apresentação para investidores. Aberto para todos os cursos.</div>
       <div class="insc-deadline">
-        <span class="deadline-badge db-aberto">🟢 Inscrições abertas</span>
+        <span class="deadline-badge db-aberto" data-pt="🟢 Inscrições abertas" data-en="🟢 Registration open">🟢 Inscrições abertas</span>
         <span class="deadline-text">Confira o prazo no site do ECOA</span>
       </div>
       <div class="insc-tags">
@@ -123,7 +131,7 @@
       </div>
       <div class="insc-desc">Quer aprender a resolver cases e entrar no mercado de consultoria? O processo seletivo do Consulting Club abre periodicamente. Aberto para todos os cursos.</div>
       <div class="insc-deadline">
-        <span class="deadline-badge db-normal">📋 Verificar prazo</span>
+        <span class="deadline-badge db-normal" data-pt="📋 Verificar prazo" data-en="📋 Check deadline">📋 Verificar prazo</span>
         <span class="deadline-text">Confira o Linktree para datas atuais</span>
       </div>
       <div class="insc-tags">
@@ -148,7 +156,7 @@
 
   <!-- EM BREVE -->
   <div class="section">
-    <div class="section-title">📌 Em breve — fique de olho</div>
+    <div class="section-title" data-pt="📌 Em breve — fique de olho" data-en="📌 Coming soon — keep an eye out">📌 Em breve — fique de olho</div>
 
     <div class="insc-card normal">
       <div class="insc-head">
@@ -160,7 +168,7 @@
       </div>
       <div class="insc-desc">A Empresa Júnior abre processo seletivo a cada semestre. Uma das experiências práticas mais valorizadas no currículo — você trabalha em projetos reais de consultoria.</div>
       <div class="insc-deadline">
-        <span class="deadline-badge db-normal">📅 A confirmar</span>
+        <span class="deadline-badge db-normal" data-pt="📅 A confirmar" data-en="📅 To be confirmed">📅 A confirmar</span>
         <span class="deadline-text">Siga o Instagram para não perder</span>
       </div>
       <div class="insc-tags">
