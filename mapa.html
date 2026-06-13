@@ -167,36 +167,10 @@
   </div>
 
   <div class="panel-tabs">
-    <button class="ptab active" onclick="showPanel('comer',this)">🍽️ Onde comer</button>
-    <button class="ptab" onclick="showPanel('estudar',this)">📚 Onde estudar</button>
-    <button class="ptab" onclick="showPanel('descansar',this)">😌 Onde descansar</button>
-    <button class="ptab" onclick="showPanel('predios',this)">🏛️ Prédios</button>
+    <button class="ptab active" onclick="showPanel('predios',this)">🏛️ Prédios & Departamentos</button>
   </div>
 
-  <div id="comer" class="panel active">
-    <div class="section-label">Restaurantes & Lanchonetes</div>
-    <div class="place-card"><div class="place-icon">🍽️</div><div><div class="place-name">Bandejão — Restaurante Universitário (RU)</div><div class="place-info">Almoço e jantar com preço subsidiado para alunos. Cardápio semanal toda segunda-feira.</div><span class="place-tag place-tag-food">Almoço</span><span class="place-tag place-tag-food">Jantar</span><span class="place-tag place-tag-food">Preço acessível</span></div></div>
-    <div class="place-card"><div class="place-icon">🏡</div><div><div class="place-name">Casinhas — Lanchonetes do Campus</div><div class="place-info">Pequenas lanchonetes espalhadas pelo campus — sanduíches, café, salgados e refeições rápidas.</div><span class="place-tag place-tag-food">Rápido</span><span class="place-tag place-tag-food">Vários pontos</span></div></div>
-    <div class="place-card"><div class="place-icon">🌮</div><div><div class="place-name">Barraquinhas — Fora da PUC</div><div class="place-info">Na saída da PUC há várias barraquinhas e food trucks com opções variadas — tapioca, açaí, refeições e lanches.</div><span class="place-tag place-tag-food">Entrada principal</span><span class="place-tag place-tag-food">Variado</span></div></div>
-    <div class="tip-box"><strong>💡 Dica:</strong> O cardápio do Bandejão sai toda segunda. A fila enche entre 12h e 13h — chegue antes ou depois!</div>
-  </div>
-
-  <div id="estudar" class="panel">
-    <div class="section-label">Espaços de estudo</div>
-    <div class="place-card"><div class="place-icon">📖</div><div><div class="place-name">Biblioteca Central — Frings (BIB)</div><div class="place-info">Maior espaço de estudo do campus. Cabines individuais, salas em grupo, acervo físico e digital. Silêncio obrigatório na maior parte dos andares.</div><span class="place-tag place-tag-study">Silêncio</span><span class="place-tag place-tag-study">Wi-Fi</span><span class="place-tag place-tag-study">Cabines individuais</span></div></div>
-    <div class="place-card"><div class="place-icon">💻</div><div><div class="place-name">Labs do RDC</div><div class="place-info">Laboratórios de informática com computadores abertos para alunos em horário comercial. Impressão grátis e Office 365.</div><span class="place-tag place-tag-study">Computadores</span><span class="place-tag place-tag-study">Impressão grátis</span></div></div>
-    <div class="place-card"><div class="place-icon">🌳</div><div><div class="place-name">Área externa — Bosque & Rio</div><div class="place-info">Mesas e bancos espalhados pelo campus, especialmente no entorno do rio e no Bosque. Wi-Fi disponível.</div><span class="place-tag place-tag-study">Ao ar livre</span><span class="place-tag place-tag-study">Wi-Fi</span></div></div>
-  </div>
-
-  <div id="descansar" class="panel">
-    <div class="section-label">Onde descansar na aula vaga</div>
-    <div class="place-card"><div class="place-icon">😌</div><div><div class="place-name">NAI — Núcleo de Apoio ao Indivíduo</div><div class="place-info">Apoio psicológico e bem-estar. Fica no Cardeal Leme.</div><span class="place-tag place-tag-rest">Apoio psicológico</span><span class="place-tag place-tag-rest">Bem-estar</span></div></div>
-    <div class="place-card"><div class="place-icon">⛲</div><div><div class="place-name">Entorno do Rio</div><div class="place-info">O ponto mais icônico do campus. Bancos, natureza e o chafariz. Preferido de quem quer respirar entre aulas.</div><span class="place-tag place-tag-rest">Natureza</span><span class="place-tag place-tag-rest">Bancos</span></div></div>
-    <div class="place-card"><div class="place-icon">🏠</div><div><div class="place-name">Vila dos Diretórios</div><div class="place-info">Casas dos centros acadêmicos e ligas estudantis. Espaço de convivência informal.</div><span class="place-tag place-tag-rest">CAs</span><span class="place-tag place-tag-rest">Ligas</span></div></div>
-    <div class="place-card"><div class="place-icon">🎭</div><div><div class="place-name">Anfiteatro & Arquibancada</div><div class="place-info">Área aberta com arquibancadas e sombra. Ótimo para aulas vagas com sol.</div><span class="place-tag place-tag-rest">Ao ar livre</span></div></div>
-  </div>
-
-  <div id="predios" class="panel">
+  <div id="predios" class="panel active">
     <div class="section-label">Prédios & Departamentos</div>
     <div class="place-card"><div class="place-icon">🏛️</div><div><div class="place-name">Cardeal Leme</div><div class="place-info">Maior prédio do campus. Psicologia (217L), Eng. Mecânica (1º), Civil (3º), Elétrica (4º), Química (4º), Matemática (7º), Design (6º), Filosofia (11º), Teologia (12º), IAG sala 501L e o NAI.</div><span class="place-tag">Prédio principal</span></div></div>
     <div class="place-card"><div class="place-icon">🎓</div><div><div class="place-name">Edifício da Amizade (Kennedy / Frings)</div><div class="place-info">Economia (210F), Comunicação (606K), Direito (6º F) e o Bandejão (ala Frings).</div><span class="place-tag">Kennedy</span><span class="place-tag">Frings</span></div></div>
