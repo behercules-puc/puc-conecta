@@ -73,36 +73,44 @@
   .highlight-box{background:rgba(0,194,255,.05);border:1px solid rgba(0,194,255,.2);border-radius:12px;padding:14px 16px;font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
   .highlight-box strong{color:var(--accent)}
 
+  
+  .top-controls{position:fixed;top:16px;right:16px;z-index:10;display:flex;gap:8px}
+  .ctrl-btn{background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--text-main);cursor:pointer;backdrop-filter:blur(12px);transition:all .2s}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn.active-lang{background:rgba(0,194,255,.15);border-color:var(--accent);color:var(--accent)}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 <div class="bg"></div><div class="grid-lines"></div>
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Modo escuro</button>
+<div class="top-controls">
+  <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  <button class="ctrl-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 <div class="wrapper">
-  <a class="back" href="index.html">← Voltar ao início</a>
+  <a class="back" href="index.html" data-pt="← Voltar ao início" data-en="← Back to home">← Voltar ao início</a>
   <div class="page-header">
-    <div class="page-badge">🚀 Além da sala de aula</div>
-    <h1>Oportunidades &amp; <span>Extensão</span></h1>
-    <p class="page-subtitle">Ligas, estágios, projetos e organizações — filtre pelo seu curso e descubra o que te espera.</p>
+    <div class="page-badge" data-pt="🚀 Além da sala de aula" data-en="🚀 Beyond the classroom">🚀 Além da sala de aula</div>
+    <h1 data-pt="Oportunidades &amp; <span>Extensão</span>" data-en="Opportunities &amp; <span>Extension</span>">Oportunidades &amp; <span>Extensão</span></h1>
+    <p class="page-subtitle" data-pt="Ligas, estágios, projetos e organizações — filtre pelo seu curso e descubra o que te espera." data-en="Leagues, internships, projects and organizations — filter by your course and discover what awaits you.">Ligas, estágios, projetos e organizações — filtre pelo seu curso e descubra o que te espera.</p>
     <div class="divider"></div>
   </div>
 
   <div class="course-tabs">
-    <button class="ctab active" onclick="showCourse('geral',this)">🌐 Geral</button>
-    <button class="ctab" onclick="showCourse('eng',this)">⚙️ Engenharia</button>
-    <button class="ctab" onclick="showCourse('econ',this)">📈 Economia</button>
-    <button class="ctab" onclick="showCourse('adm',this)">🏢 Administração</button>
-    <button class="ctab" onclick="showCourse('psi',this)">🧠 Psicologia & Neurociência</button>
-    <button class="ctab" onclick="showCourse('com',this)">📡 Comunicação</button>
-    <button class="ctab" onclick="showCourse('dir',this)">⚖️ Direito</button>
-    <button class="ctab" onclick="showCourse('arq',this)">🏛️ Arquitetura</button>
+    <button class="ctab active" onclick="showCourse('geral',this)" data-pt="🌐 Geral" data-en="🌐 General">🌐 Geral</button>
+    <button class="ctab" onclick="showCourse('eng',this)" data-pt="⚙️ Engenharia" data-en="⚙️ Engineering">⚙️ Engenharia</button>
+    <button class="ctab" onclick="showCourse('econ',this)" data-pt="📈 Economia" data-en="📈 Economics">📈 Economia</button>
+    <button class="ctab" onclick="showCourse('adm',this)" data-pt="🏢 Administração" data-en="🏢 Business">🏢 Administração</button>
+    <button class="ctab" onclick="showCourse('psi',this)" data-pt="🧠 Psicologia & Neurociência" data-en="🧠 Psychology & Neuroscience">🧠 Psicologia & Neurociência</button>
+    <button class="ctab" onclick="showCourse('com',this)" data-pt="📡 Comunicação" data-en="📡 Communication">📡 Comunicação</button>
+    <button class="ctab" onclick="showCourse('dir',this)" data-pt="⚖️ Direito" data-en="⚖️ Law">⚖️ Direito</button>
+    <button class="ctab" onclick="showCourse('arq',this)" data-pt="🏛️ Arquitetura" data-en="🏛️ Architecture">🏛️ Arquitetura</button>
   </div>
 
   <!-- GERAL -->
   <div id="geral" class="course-panel active">
-    <div class="section-label">Para todos os cursos</div>
+    <div class="section-label" data-pt="Para todos os cursos" data-en="For all courses">Para todos os cursos</div>
 
     <div class="org-card">
       <div class="org-head"><div class="org-icon oi-ecoa">🌱</div><div class="org-meta"><div class="org-name">ECOA</div><div class="org-tagline">Empreendedorismo &amp; Inovação na PUC</div></div></div>
